@@ -1,0 +1,10 @@
+name: Windows checks
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  smoke:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Test real process collection
+        shell: powershell
+        run: .\PCPulse.ps1 -SmokeTest
